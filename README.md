@@ -3,7 +3,7 @@ Impressora Elgin i9
 
 
 
-1. Função exibirMenu()
+1.Função exibirMenu()
 
 A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: 
 abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
@@ -12,7 +12,7 @@ abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código
 
 
 
-3. Função configurarConexao()
+2. Função configurarConexao()
    
 Ela vai permitir que o usuário defina os parâmetros necessários para se conectar à impressora Elgin i9.
 
@@ -51,7 +51,7 @@ Então exibimos na tela o código de erro, printando a variável ret de retorno.
 
 
 
-4. Função fecharConexao()
+4.Função fecharConexao()
    
 Essa função serve para encerrar a conexão com a impressora antes de sair do programa.
 
@@ -62,7 +62,7 @@ Quando a conexão é fechada com sucesso, atualizamos g_conectada para 0, indica
 
 
 
-6. Função imprimirTexto()
+5.Função imprimirTexto()
    
 Essa função é responsável por imprimir um texto simples na impressora. Primeiro, ela pede para o usuário digitar um texto, e essa frase é lida usando fgets().
 Em seguida, removemos o “ENTER” que fica no final da string para evitar que seja impresso.
@@ -75,7 +75,7 @@ Depois da impressão, avançamos o papel com AvancaPapel(2) que avança duas lin
 
 
 
-8. Função imprimirQrCode()
+6.Função imprimirQrCode()
 Esta função é responsável por gerar e imprimir um QR Code usando a impressora i9.
 
 Primeiro, o programa pede para o usuário digitar o conteúdo que será transformado no QR Code.
@@ -146,7 +146,7 @@ Depois da impressão do cupom do SAT, usamos novamente:
 
 
 
- 9. Função imprimirXMLCancelamentoSAT()
+9.Função imprimirXMLCancelamentoSAT()
      
  Esta é responsável por imprimir o XML de cancelamento do SAT. Esse XML é o documento gerado quando uma venda SAT é cancelada, e ele possui uma assinatura digital obrigatória para validar o cancelamento.
 
@@ -185,7 +185,7 @@ Corte(2);
 
 
 
-10. Função abrirGavetaElginOpc()
+10.Função abrirGavetaElginOpc()
     
 Essa função usa parâmetros padrões para abertura de gavetas Elgin.
 
@@ -203,7 +203,7 @@ Esses valores foram definidos pelo professor, então usamos exatamente como ele 
 
 
 
-11. Função abrirGavetaOpc()
+11.Função abrirGavetaOpc()
     
 Esta função serve apenas para abrir a gaveta.
 
@@ -220,7 +220,7 @@ AbreGaveta(1, 5, 10);
 
 
 
-12. Função emitirSinalSonoro()
+12.Função emitirSinalSonoro()
     
 Emite sinal sonoro na impressora;
 
@@ -233,3 +233,5 @@ SinalSonoro(4, 50, 5);
 50 - duração do sinal sonoro;
 
 5  -intervalo entre os sinais sonoros;
+
+
