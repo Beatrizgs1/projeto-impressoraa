@@ -8,7 +8,7 @@ Impressora Elgin i9
 A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: 
 abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
 
-> Ela não executa nenhuma ação, apenas apresenta o menu sempre que o programa precisa que o usuário escolha uma opção, por isso ela não tem nenhum retorno.
+-Ela não executa nenhuma ação, apenas apresenta o menu sempre que o programa precisa que o usuário escolha uma opção, por isso ela não tem nenhum retorno.
 
 
 
@@ -26,7 +26,7 @@ Quando ela é chamada, o programa pergunta quatro informações:
 
 -Parametro(baudrate ou porta de comunicação TCP/IP.)
 
-> O valor digitado para cada campo é armazenado nas variáveis globais (g_tipo, g_modelo, g_conexao, g_parametro) que já vieram configuradas no código dado e apenas chamamos elas, e que depois são usadas pela função que abre a conexão.
+-O valor digitado para cada campo é armazenado nas variáveis globais (g_tipo, g_modelo, g_conexao, g_parametro) que já vieram configuradas no código dado e apenas chamamos elas, e que depois são usadas pela função que abre a conexão.
 
 Utilizamos a função flush_entrada() que foi usada para limpar o buffer de entrada do teclado, pois quando usamos scanf para ler um número ou uma palavra, o usuário aperta ENTER, e esse ENTER fica “sobrando” no teclado, e ai acababa causando erro na proxima linha.
 
