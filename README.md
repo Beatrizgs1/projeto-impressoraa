@@ -6,8 +6,7 @@ abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código
 -Ela não executa nenhuma ação, apenas apresenta o menu sempre que o programa precisa que o usuário escolha uma opção, por isso ela não tem nenhum retorno.
 
 
-
-2. Função configurarConexao()
+2.Função configurarConexao()
    
 Ela vai permitir que o usuário defina os parâmetros necessários para se conectar à impressora Elgin i9.
 
