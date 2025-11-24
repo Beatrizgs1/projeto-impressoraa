@@ -1,6 +1,4 @@
 # projeto-impressoraa
-Impressora Elgin i9
-
 
 
 1.Função exibirMenu()
@@ -94,7 +92,7 @@ conteudo - texto digitado pelo usuário;
 
 
 
-7. FuncãoimprimirCodigoBarras()
+7.FunçãoimprimirCodigoBarras()
      
 Esta função é responsável por imprimir um código de barras padrão na impressora. Diferente das outras funções, ela não pede para o usuário digitar nada pois  o código de barras já está definido diretamente no código, exatamente como o professor pediu.
 
@@ -120,7 +118,7 @@ Corte(2);
 
 
 
-8. Função ImprimirXMLSAT()
+8.Função ImprimirXMLSAT()
    
 Esta função imprimirXMLSAT() é responsável por enviar um arquivo XML de venda do SAT para a impressora. Esse tipo de impressão é usado quando queremos imprimir um cupom fiscal já gerado pelo SAT.
 Dentro da função, definimos o caminho do arquivo XML:
