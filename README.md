@@ -1,15 +1,18 @@
 # projeto-impressoraa
 Impressora Elgin i9
 
+
 1. Função exibirMenu()
 
 A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
 
 > Ela não executa nenhuma ação, apenas apresenta o menu sempre que o programa precisa que o usuário escolha uma opção, por isso ela não tem nenhum retorno.
 
+
 3.  Função configurarConexao()
    
 Ela vai permitir que o usuário defina os parâmetros necessários para se conectar à impressora Elgin i9.
+
 Quando ela é chamada, o programa pergunta quatro informações:
 
 - Tipo de conexão (por exemplo: 1 para USB, 2 para RS232, 3 para TCP/IP, 4	para Bluetooth e 5 para Impressoras acopladas (Android));
@@ -29,6 +32,7 @@ Utilizamos a função flush_entrada() que foi usada para limpar o buffer de entr
 A função  é responsável por realmente iniciar a conexão com a impressora. Depois disso, ela verifica se já existe uma conexão aberta.
 
 Se não existir, ela chama a função da DLL:
+
 AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
 
 Se o retorno for 0, significa que a conexão foi aberta com sucesso.
@@ -37,6 +41,7 @@ Atualizamos a variável g_conectada = 1
 
 Se o retorno for diferente de 0, significa erro ao abrir conexão.
 Então exibimos na tela o código de erro, printando a variável ret de retorno.
+
 
 4. Função fecharConexao()
    
@@ -81,15 +86,22 @@ ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3);
 
  8 - tipo do modelo do  código de barras (CODE 128);
  "{A012345678912" → conteúdo do código de barras; 
+ 
  100 - altura do código de barras;
+ 
  2 - largura da barra;
+ 
  3- posição de impressão do código de barra;
 
 Depois de imprimir o código de barras, também chamamos como na outra funçaõ:
+
 AvancaPapel(2);
+
 Corte(2);
 
+
 8.  Função ImprimirXMLSAT()
+   
 Esta função imprimirXMLSAT() é responsável por enviar um arquivo XML de venda do SAT para a impressora. Esse tipo de impressão é usado quando queremos imprimir um cupom fiscal já gerado pelo SAT.
 Dentro da função, definimos o caminho do arquivo XML:
 char caminho[] = "path=XMLSAT.xml";
@@ -110,6 +122,7 @@ Depois da impressão do cupom do SAT, usamos novamente:
  AvancaPapel(4);
  
  Corte(2);
+
 
  9. Função imprimirXMLCancelamentoSAT()
      
@@ -147,6 +160,7 @@ AvancaPapel(4);
 
 Corte(2);
 
+
 10. Função abrirGavetaElginOpc()
     
 Essa função usa parâmetros padrões para abertura de gavetas Elgin.
@@ -161,6 +175,7 @@ AbreGavetaElgin(1, 50, 50);
 50 -  tempo de desativação do pulso;
 
 Esses valores foram definidos pelo professor, então usamos exatamente como ele pediu. Essa função não imprime nada e não corta papel , ela apenas aciona o mecanismo da gaveta.
+
 
 11. Função abrirGavetaOpc()
     
