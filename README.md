@@ -16,7 +16,7 @@ Ela vai permitir que o usuário defina os parâmetros necessários para se conec
 
 Quando ela é chamada, o programa pergunta quatro informações:
 
-- Tipo de conexão (por exemplo: 1 para USB, 2 para RS232, 3 para TCP/IP, 4	para Bluetooth e 5 para Impressoras acopladas (Android));
+-Tipo de conexão (por exemplo: 1 para USB, 2 para RS232, 3 para TCP/IP, 4	para Bluetooth e 5 para Impressoras acopladas (Android));
   
 -Modelo da impressora (no nosso caso “i9” mas existem outros valores como i7, i8 entre outras);
 
@@ -100,14 +100,14 @@ Dentro da função, chamamos:
 
 ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3);
 
- 8 - tipo do modelo do  código de barras (CODE 128);
- "{A012345678912" → conteúdo do código de barras; 
+8 - tipo do modelo do  código de barras (CODE 128);
+"{A012345678912" → conteúdo do código de barras; 
  
- 100 - altura do código de barras;
+100 - altura do código de barras;
  
- 2 - largura da barra;
+2 - largura da barra;
  
- 3- posição de impressão do código de barra;
+3- posição de impressão do código de barra;
 
 Depois de imprimir o código de barras, também chamamos como na outra funçaõ:
 
@@ -137,16 +137,16 @@ O retorno da função é guardado em ret, como como nas outras funções da DLL:
 0 significa que deu tudo certo e qualquer outro número indica erro
 Depois da impressão do cupom do SAT, usamos novamente:
      
- AvancaPapel(4);
+AvancaPapel(4);
  
- Corte(2);
+Corte(2);
 
 
 
 
 9.Função imprimirXMLCancelamentoSAT()
      
- Esta é responsável por imprimir o XML de cancelamento do SAT. Esse XML é o documento gerado quando uma venda SAT é cancelada, e ele possui uma assinatura digital obrigatória para validar o cancelamento.
+Esta é responsável por imprimir o XML de cancelamento do SAT. Esse XML é o documento gerado quando uma venda SAT é cancelada, e ele possui uma assinatura digital obrigatória para validar o cancelamento.
 
 Dentro da função, definimos o caminho do XML:
 
@@ -162,11 +162,11 @@ Depois disso, definimos a assinatura digital do cancelamento, que já foi fornec
 
  Essa assinatura é necessária porque o XML de cancelamento precisa dessa validação para ser impresso corretamente.
 
- Depois chamamos:
+Depois chamamos:
  
- int ret = ImprimeXMLCancelamentoSAT(caminho, assinatura, 0);
+int ret = ImprimeXMLCancelamentoSAT(caminho, assinatura, 0);
  
- caminho - XML do cancelamento
+caminho - XML do cancelamento
      
 0 - indica que estamos usando o modo padrão de impressão (nenhuma opção extra)
 
@@ -209,11 +209,11 @@ Chamamos a função DLL:
 
 AbreGaveta(1, 5, 10);
      
- 1 - qual saída da impressora vai mandar o sinal
+1 - qual saída da impressora vai mandar o sinal
  
- 5 - quanto tempo o sinal vai durar
+5 - quanto tempo o sinal vai durar
  
- 10 - pequena pausa depois do sinal
+10 - pequena pausa depois do sinal
 
 
 
