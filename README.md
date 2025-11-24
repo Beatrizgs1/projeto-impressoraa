@@ -1,5 +1,5 @@
 # projeto-impressoraa
-1.Função exibirMenu()
+1.Função exibirMenu()                                                                                                                                                              
 A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: 
 abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
 
