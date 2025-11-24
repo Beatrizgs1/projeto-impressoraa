@@ -108,6 +108,7 @@ static void exibirMenu(void)
     printf("\n");
 }
 
+
 static void configurarConexao(void)
 {
     printf("Digite o tipo:\n"); 
@@ -125,21 +126,28 @@ static void configurarConexao(void)
     printf("Digite o parametro:\n"); 
 	scanf("%d", &g_parametro); 
 	flush_entrada();
+	
+	printf("\n");
+    printf("Configuracao feita com sucesso!!!");
+    printf("\n");
 }
 
 static void abrirConexao(void)
 {
     if (g_conectada) {
-        printf("Impressora Conectada!\n");
+        printf("\n");
+        printf(" Ja tem uma Impressora Conectada!\n");
         return;
     }
 
     int ret = AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
 
     if (ret == 0) {
-        printf("Conexão aberta com sucesso!\n");
+        printf("\n");
+        printf("Conexao aberta com sucesso!\n");
         g_conectada = 1;
     } else {
+        printf("\n");
         printf("Erro ao abrir conexao: %d\n", ret);
     }
 }
@@ -239,6 +247,8 @@ static void emitirSinalSonoro(void)
 {
     SinalSonoro(4, 50, 5);
 }
+
+
 
 /* ======================= Função principal ======================= */
 int main(void)
