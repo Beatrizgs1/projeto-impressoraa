@@ -9,7 +9,7 @@ A função basicamente é responsável por printar na tela para o usuários toda
 > Ela não executa nenhuma ação, apenas apresenta o menu sempre que o programa precisa que o usuário escolha uma opção, por isso ela não tem nenhum retorno.
 
 
-3.  Função configurarConexao()
+3. Função configurarConexao()
    
 Ela vai permitir que o usuário defina os parâmetros necessários para se conectar à impressora Elgin i9.
 
@@ -26,6 +26,7 @@ Quando ela é chamada, o programa pergunta quatro informações:
 > O valor digitado para cada campo é armazenado nas variáveis globais (g_tipo, g_modelo, g_conexao, g_parametro) que já vieram configuradas no código dado e apenas chamamos elas, e que depois são usadas pela função que abre a conexão.
 
 Utilizamos a função flush_entrada() que foi usada para limpar o buffer de entrada do teclado, pois quando usamos scanf para ler um número ou uma palavra, o usuário aperta ENTER, e esse ENTER fica “sobrando” no teclado, e ai acababa causando erro na proxima linha.
+
 
 3.Função abrirConexao()
 
@@ -70,13 +71,13 @@ Depois disso, removemos o ENTER (\n) do final da string usando o fgets para evit
 Depois, chamamos a função ImpressaoQRCode() da DLL da Elgin, usando exatamente os parâmetros definidos pelo professor:
 ImpressaoQRCode(conteudo, 6, 4);
 
-  conteudo - texto digitado pelo usuário;
+conteudo - texto digitado pelo usuário;
   
-  6 - tamanho do QR Code (maior);
+6 - tamanho do QR Code (maior);
   
-  4 - nível de correção (30%);
+4 - nível de correção (30%);
 
-  7. FuncãoimprimirCodigoBarras()
+7. FuncãoimprimirCodigoBarras()
      
 Esta função é responsável por imprimir um código de barras padrão na impressora. Diferente das outras funções, ela não pede para o usuário digitar nada pois  o código de barras já está definido diretamente no código, exatamente como o professor pediu.
 
@@ -100,7 +101,7 @@ AvancaPapel(2);
 Corte(2);
 
 
-8.  Função ImprimirXMLSAT()
+8. Função ImprimirXMLSAT()
    
 Esta função imprimirXMLSAT() é responsável por enviar um arquivo XML de venda do SAT para a impressora. Esse tipo de impressão é usado quando queremos imprimir um cupom fiscal já gerado pelo SAT.
 Dentro da função, definimos o caminho do arquivo XML:
