@@ -2,11 +2,14 @@
 Impressora Elgin i9
 
 
+
 1. Função exibirMenu()
 
-A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
+A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: 
+abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
 
 > Ela não executa nenhuma ação, apenas apresenta o menu sempre que o programa precisa que o usuário escolha uma opção, por isso ela não tem nenhum retorno.
+
 
 
 3. Função configurarConexao()
@@ -28,6 +31,8 @@ Quando ela é chamada, o programa pergunta quatro informações:
 Utilizamos a função flush_entrada() que foi usada para limpar o buffer de entrada do teclado, pois quando usamos scanf para ler um número ou uma palavra, o usuário aperta ENTER, e esse ENTER fica “sobrando” no teclado, e ai acababa causando erro na proxima linha.
 
 
+
+
 3.Função abrirConexao()
 
 A função  é responsável por realmente iniciar a conexão com a impressora. Depois disso, ela verifica se já existe uma conexão aberta.
@@ -44,6 +49,8 @@ Se o retorno for diferente de 0, significa erro ao abrir conexão.
 Então exibimos na tela o código de erro, printando a variável ret de retorno.
 
 
+
+
 4. Função fecharConexao()
    
 Essa função serve para encerrar a conexão com a impressora antes de sair do programa.
@@ -51,6 +58,9 @@ Essa função serve para encerrar a conexão com a impressora antes de sair do p
 Primeiro, ela verifica se existe uma conexão ativa usando a variável g_conectada, se a impressora estiver conectada, chamamos a função FechaConexaoImpressora() da DLL.
 
 Quando a conexão é fechada com sucesso, atualizamos g_conectada para 0, indicando que agora não existe mais nenhuma conexão ativa, esta função é basicamente o contrário da função abrir conexão, além disso, antes de tentar fechar a conexão, o programa verifica se realmente existe uma conexão ativa, para isso, ele usa if (!g_conectada), que significa “se não estiver conectada”, caso não exista conexão, a função simplesmente retorna, evitando chamadas desnecessários, até porque não faz sentido nenhum fechar uma conexão que nem existe.
+
+
+
 
 6. Função imprimirTexto()
    
@@ -60,6 +70,10 @@ Em seguida, removemos o “ENTER” que fica no final da string para evitar que 
 Após isso, chamamos ImpressaoTexto() da DLL da Elgin usando os parâmetros definidos pelo professor (1, 4, 0), que controlam a posição (centro), o tamanho da fonte  e o estilo do texto(normal).
 
 Depois da impressão, avançamos o papel com AvancaPapel(2) que avança duas linhas e cortamos com Corte(2) para finalizar o processo e deixar o texto organizado.
+
+
+
+
 
 8. Função imprimirQrCode()
 Esta função é responsável por gerar e imprimir um QR Code usando a impressora i9.
@@ -76,6 +90,9 @@ conteudo - texto digitado pelo usuário;
 6 - tamanho do QR Code (maior);
   
 4 - nível de correção (30%);
+
+
+
 
 7. FuncãoimprimirCodigoBarras()
      
@@ -101,6 +118,8 @@ AvancaPapel(2);
 Corte(2);
 
 
+
+
 8. Função ImprimirXMLSAT()
    
 Esta função imprimirXMLSAT() é responsável por enviar um arquivo XML de venda do SAT para a impressora. Esse tipo de impressão é usado quando queremos imprimir um cupom fiscal já gerado pelo SAT.
@@ -123,6 +142,8 @@ Depois da impressão do cupom do SAT, usamos novamente:
  AvancaPapel(4);
  
  Corte(2);
+
+
 
 
  9. Função imprimirXMLCancelamentoSAT()
@@ -162,6 +183,8 @@ AvancaPapel(4);
 Corte(2);
 
 
+
+
 10. Função abrirGavetaElginOpc()
     
 Essa função usa parâmetros padrões para abertura de gavetas Elgin.
@@ -178,6 +201,8 @@ AbreGavetaElgin(1, 50, 50);
 Esses valores foram definidos pelo professor, então usamos exatamente como ele pediu. Essa função não imprime nada e não corta papel , ela apenas aciona o mecanismo da gaveta.
 
 
+
+
 11. Função abrirGavetaOpc()
     
 Esta função serve apenas para abrir a gaveta.
@@ -191,6 +216,9 @@ AbreGaveta(1, 5, 10);
  5 - quanto tempo o sinal vai durar
  
  10 - pequena pausa depois do sinal
+
+
+
 
 12. Função emitirSinalSonoro()
     
