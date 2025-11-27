@@ -1,4 +1,19 @@
-# projeto-impressoraa
+# PROJETO IMPRESSORA-ELGIN
+
+Descrição do Projeto
+Este projeto é um exemplo de implementação e integração em C com a DLL oficial da Elgin para controle da impressora Elgin i9. Tendo como objetivo, demonstrar e testar as principais funcionalidades da impressora, como:
+
+° Abertura e fechamento de conexão;
+° Impressão de texto, QR Code e códigos de barra;
+° Comandos específicos para automação comercial (SAT, abertura de gaveta e sinal sonoro).
+
+Pré-requisitos
+Para compilar e executar este projeto, você precisará de:
+
+° Um compilador C (ex: DEV C++, Visual Studio...).
+° A DLL oficial da Elgin (IntegracaoImpressora.dll ou similar) deve estar presente no mesmo diretório para executar o código.
+° Sistema Operacional Windows (necessário para o uso da DLL).
+
 1.Função exibirMenu()                                                                                                                                                              
 A função basicamente é responsável por printar na tela para o usuários todas as opções disponíveis e funcionalidades da impressora que ela pode executar como: 
 abrir conexão, fecharconexão imprimir texto, imprimir QrCode, imprimir código de barras, imprimir XMLSAT, imprimir XMLCancelamentoSAT, abrir GavetaElginOpc, abrir GavetaOpc, emitir SinalSonoro.
