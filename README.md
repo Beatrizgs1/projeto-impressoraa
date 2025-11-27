@@ -190,9 +190,13 @@ Emite um sinal sonoro na impressora:
 
 SinalSonoro(4, 50, 5);
 
+
 👥 Autores
 
 Ana Luisa Costa da Silva
+
 Beatriz Gonçalves de Souza
+
 Julia Souza Costa
+
 Thiago Pinheiro Lima
