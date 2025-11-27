@@ -1,6 +1,8 @@
-🖨️ PROJETO IMPRESSORA-ELGIN – Integração em C com a DLL Oficial
+# 🖨️ Integração Java com Impressora Elgin i9
+### *PROJETO IMPRESSORA-ELGIN*
+---
 
-📘 Descrição do Projeto
+## 📘 Sobre o Projeto
 
 Este projeto demonstra como integrar aplicações em linguagem C com a impressora Elgin i9, utilizando a DLL oficial de comunicação fornecida pela própria Elgin.
 O objetivo é testar e executar as principais funcionalidades da impressora, como:
@@ -21,182 +23,120 @@ O objetivo é testar e executar as principais funcionalidades da impressora, com
 
 O trabalho foi desenvolvido para fins educativos, como parte da disciplina de Programação.
 
-🧰 Pré-Requisitos
 
-Para compilar e executar o projeto, você precisará de:
+---
 
-🔹 Compilador C (Dev-C++, Visual Studio, etc.)
+## 🧰 Tecnologias Utilizadas
 
-🔹 DLL oficial da Elgin
+- Linguagem C
 
-IntegracaoImpressora.dll (ou nome equivalente fornecido pela Elgin)
+- GCC / MinGW (Windows)
 
-Deve estar no mesmo diretório do executável
+- DLL oficial E1_Impressora01.dll (Elgin)
 
-🔹 Sistema Operacional Windows (necessário para uso da DLL)
+- Dev-C++ 
 
-🗂️ Funções do Sistema
+- Driver da impressora Elgin i9
+---
 
-A seguir você encontrará um resumo claro de cada função implementada no programa em C.
+## 📁 Estrutura do Projeto
 
-📌 1. exibirMenu()
+/src → Código-fonte principal
+/lib → Bibliotecas e dependências externas
+/docs → Materiais adicionais e documentação
+/examples → Testes e arquivos de demonstração
 
-Exibe todas as opções disponíveis para o usuário, como:
 
-Abrir conexao
+---
 
-Fechar conexao
+## ⚙️ Instalação e Execução
 
-Imprimir texto
+### 🔽 1. Baixar o Projeto do GitHub
+1. Acesse o repositório.
+2. Clique no botão **Code**, botão verde.
+3. Selecione **Baixar ZIP**.
+4. Aguarde o download.
 
-Imprimir QR Code
+### 📦 2. Extrair o Arquivo ZIP
+1. Vá até o local onde o arquivo foi salvo.
+2. Clique com o botão direito → **Extrair tudo*.
+3. Será criada uma nova pasta com os arquivos extraido de forma certa.
 
-Imprimir código de barras
+### 🧭 3. Importar no Dev C++
+1. Abra o **Dev C++**.
+2. Clique em **File**.
+3. Depois Open.
+4. Selecione o arquivo extraído.
+5. Depois abra o arquivo e espere o carregamento do código.
 
-Imprimir XML SAT
 
-Imprimir XML Cancelamento
+---
 
-Abrir gaveta (Elgin)
+## 🧪 Testes
 
-Abrir gaveta 
+📄 1. Teste de Impressão de Texto
 
-Emitir sinal sonoro
+**ImpressaoTexto(texto, 1, 4, 0)**;
 
-📌 Apenas exibe o menu. Não executa nenhuma ação.
 
-📌 2. configurarConexao()
 
-Permite ao usuário definir os parâmetros necessários para se conectar à impressora:
+🔳 2. Teste de QR Code
 
-Tipo de conexão (USB, Serial, TCP/IP etc.)
+**ImpressaoQRCode(conteudo, 6, 4)**;
 
-Modelo (ex.: i9)
 
-Tipo de comunicação
+Tamanho 6
 
-Parâmetro específico (porta, baudrate ou IP)
+Correção nível 4 (30%)
 
-As respostas são armazenadas em variáveis globais usadas posteriormente por abrirConexao().
+🏷️ 3. Teste de Código de Barras
 
-Usa também flush_entrada() para evitar problemas com buffer do teclado.
+**ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3)**;
 
-📌 3. abrirConexao()
+Padrão Code128
 
-Abre de fato a conexão com a impressora usando a função da DLL:
+Altura 100
 
-AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
+Largura 2
 
+HRI posição 3
 
-retorno 0 → conexão aberta
+🧾 4. Teste XML SAT
 
-outros valores → erro
+**ImprimeXMLSAT("path=XMLSAT.xml", 0)**;
 
-Atualiza a variável global g_conectada.
+❌ 5. Teste XML Cancelamento SAT
 
-📌 4. fecharConexao()
+**ImprimeXMLCancelamentoSAT("path=CANC_SAT.xml", assinatura, 0)**;
 
-Encerra a conexão com a impressora, chamando:
+Envio do XML + assinatura digital completa fornecida pelo professor
 
-FechaConexaoImpressora();
+🔔 6. Teste de Sinal Sonoro
 
+**SinalSonoro(4, 50, 5)**;
 
-Só executa se houver uma conexão ativa.
+4 sinais
 
-📌 5. imprimirTexto()
+50ms por sinal
 
-Permite ao usuário digitar um texto e imprime usando:
+Intervalo de 5ms
 
-ImpressaoTexto(texto, 1, 4, 0);
+📬 7. Teste de Abertura de Gaveta
 
+**AbreGavetaElgin(1, 50, 50)**;
 
-Onde:
+---
 
-Alinhamento: centro
+## 📚 Documentação Adicional
 
-Tamanho da fonte: padrão
+-Plataforma de Comunicação Elgin
 
-Estilo: normal
+---
 
-Finaliza com:
+## 👥 Autores  
+*(em ordem alfabética)*
 
-AvancaPapel(2);
-Corte(2);
-
-📌 6. imprimirQrCode()
-
-Lê um texto digitado pelo usuário e imprime um QR Code via:
-
-ImpressaoQRCode(conteudo, 6, 4);
-
-
-6 = tamanho
-
-4 = nível de correção (30%)
-
-📌 7. imprimirCodigoBarras()
-
-Imprime um código de barras pré-definido:
-
-ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3);
-
-
-8 = CODE128
-
-Altura = 100
-
-Largura = 2
-
-Posição = 3
-
-Finaliza com avanço e corte.
-
-📌 8. imprimirXMLSAT()
-
-Imprime um XML de venda do SAT:
-
-char caminho[] = "path=XMLSAT.xml";
-ImprimeXMLSAT(caminho, 0);
-
-Finaliza com:
-
-AvancaPapel(4);
-Corte(2);
-
-📌 9. imprimirXMLCancelamentoSAT()
-
-Imprime o XML de cancelamento do SAT com assinatura digital:
-
-ImprimeXMLCancelamentoSAT(caminho, assinatura, 0);
-
-
-Também avança e corta o papel.
-
-📌 10. abrirGavetaElginOpc()
-
-Aciona gavetas compatíveis com Elgin usando:
-
-AbreGavetaElgin(1, 50, 50);
-
-📌 11. abrirGavetaOpc()
-
-Abertura de gaveta:
-
-AbreGaveta(1, 5, 10);
-
-📌 12. emitirSinalSonoro()
-
-Emite um sinal sonoro na impressora:
-
-SinalSonoro(4, 50, 5);
-
-
-👥 Autores
-
-Ana Luisa Costa da Silva
-
-Beatriz Gonçalves de Souza
-
-Julia Souza Costa
-
-Thiago Pinheiro Lima
+- Ana Luisa Costa
+- Julia Ferraz
+- Thiago Lima
+- Beatriz Gonçalves
