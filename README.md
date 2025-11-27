@@ -52,7 +52,7 @@ O trabalho foi desenvolvido para fins educativos, como parte da disciplina de Pr
 ## ⚙️ Instalação e Execução
 
 ### 🔽 1. Baixar o Projeto do GitHub
-1. Acesse o repositório.
+1. Acesse o **repositório**.
 2. Clique no botão **Code**, botão verde.
 3. Selecione **Baixar ZIP**.
 4. Aguarde o download.
