@@ -59,7 +59,7 @@ O trabalho foi desenvolvido para fins educativos, como parte da disciplina de Pr
 
 ### 📦 2. Extrair o Arquivo ZIP
 1. Vá até o local onde o arquivo foi salvo.
-2. Clique com o botão direito → **Extrair tudo*.
+2. Clique com o botão direito → **Extrair tudo**.
 3. Será criada uma nova pasta com os arquivos extraido de forma certa.
 
 ### 🧭 3. Importar no Dev C++
