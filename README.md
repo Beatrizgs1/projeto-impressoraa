@@ -1,4 +1,5 @@
 🖨️ PROJETO IMPRESSORA-ELGIN – Integração em C com a DLL Oficial
+
 📘 Descrição do Projeto
 
 Este projeto demonstra como integrar aplicações em linguagem C com a impressora Elgin i9, utilizando a DLL oficial de comunicação fornecida pela própria Elgin.
