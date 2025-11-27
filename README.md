@@ -43,9 +43,9 @@ A seguir você encontrará um resumo claro de cada função implementada no prog
 
 Exibe todas as opções disponíveis para o usuário, como:
 
-Abrir conexão
+Abrir conexao
 
-Fechar conexão
+Fechar conexao
 
 Imprimir texto
 
@@ -59,7 +59,7 @@ Imprimir XML Cancelamento
 
 Abrir gaveta (Elgin)
 
-Abrir gaveta (Genérico)
+Abrir gaveta 
 
 Emitir sinal sonoro
 
@@ -180,7 +180,7 @@ AbreGavetaElgin(1, 50, 50);
 
 📌 11. abrirGavetaOpc()
 
-Abertura genérica de gaveta:
+Abertura de gaveta:
 
 AbreGaveta(1, 5, 10);
 
