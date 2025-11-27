@@ -65,8 +65,8 @@ O trabalho foi desenvolvido para fins educativos, como parte da disciplina de Pr
 ### 🧭 3. Importar no Dev C++
 1. Abra o **Dev C++**.
 2. Clique em **File**.
-3. Depois Open.
-4. Selecione o arquivo extraído.
+3. Depois **Open**.
+4. Selecione o **arquivo extraído**.
 5. Depois abra o arquivo e espere o carregamento do código.
 
 
