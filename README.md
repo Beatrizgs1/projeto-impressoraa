@@ -34,20 +34,11 @@ O trabalho foi desenvolvido para fins educativos, como parte da disciplina de Pr
 
 - DLL oficial E1_Impressora01.dll (Elgin)
 
-- Dev-C++ 
+- Dev C++ 
 
 - Driver da impressora Elgin i9
 ---
 
-## 📁 Estrutura do Projeto
-
-/src → Código-fonte principal
-/lib → Bibliotecas e dependências externas
-/docs → Materiais adicionais e documentação
-/examples → Testes e arquivos de demonstração
-
-
----
 
 ## ⚙️ Instalação e Execução
 
@@ -137,6 +128,7 @@ Intervalo de 5ms
 *(em ordem alfabética)*
 
 - Ana Luisa Costa
+- Beatriz Gonçalves
 - Julia Ferraz
 - Thiago Lima
-- Beatriz Gonçalves
+
