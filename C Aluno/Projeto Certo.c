@@ -46,6 +46,7 @@ static char  g_modelo[64] = "i9";
 static char  g_conexao[128] = "USB";
 static int   g_parametro = 0;
 static int   g_conectada = 0;
+static int   g_configurada = 0;
 
 /* ======================= Utilidades ======================= */
 #define LOAD_FN(h, name)                                                         \
@@ -106,51 +107,56 @@ static void exibirMenu(void)
     printf("10 -Sinal Sonoro\n");
     printf("0 - Fechar Conexao e Sair\n");
     printf("\n");
+    
 }
-
-
+	
 static void configurarConexao(void)
-{
-    printf("Digite o tipo:\n"); 
-	scanf("%d", &g_tipo); 
-	flush_entrada();
-	
-    printf("Digite o modelo:\n"); 
-	scanf("%s", &g_modelo); 
-	flush_entrada();
-	
-    printf("Digite a conexao:\n"); 
-	scanf("%s", &g_conexao); 
-	flush_entrada();
-	
-    printf("Digite o parametro:\n"); 
-	scanf("%d", &g_parametro); 
-	flush_entrada();
-	
-	printf("\n");
-    printf("Configuracao feita com sucesso!!!");
-    printf("\n");
-}
-
-static void abrirConexao(void)
-{
-    if (g_conectada) {
-        printf("\n");
-        printf(" Ja tem uma Impressora Conectada!\n");
+{  
+    if (g_configurada) {
+        printf("\nJa existe uma configuracao realizada!\n\n");
         return;
     }
 
-    int ret = AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
+    printf("Digite o tipo:\n"); 
+    scanf("%d", &g_tipo); 
+    flush_entrada();
+    
+    printf("Digite o modelo:\n"); 
+    scanf("%s", g_modelo); 
+    flush_entrada();
+    
+    printf("Digite a conexao:\n"); 
+    scanf("%s", g_conexao); 
+    flush_entrada();
+    
+    printf("Digite o parametro:\n"); 
+    scanf("%d", &g_parametro); 
+    flush_entrada();
+    
+    g_configurada = 1;
 
-    if (ret == 0) {
+    printf("\nConfiguracao feita com sucesso!!!\n\n");    
+}
+
+    
+
+
+static void abrirConexao(void)
+{
+   int ret = AbreConexaoImpressora(g_tipo, g_modelo, g_conexao, g_parametro);
+
+    if(ret == 0) {
         printf("\n");
         printf("Conexao aberta com sucesso!\n");
         g_conectada = 1;
-    } else {
+        
+    }else {
         printf("\n");
         printf("Erro ao abrir conexao: %d\n", ret);
     }
+    
 }
+
 
 static void fecharConexao(void)
 {
@@ -166,6 +172,7 @@ static void fecharConexao(void)
     } else {
         printf("Erro em fechar a conexao: %d\n", ret);
     }
+    
 }
 
 static void imprimirTexto(void)
@@ -176,25 +183,55 @@ static void imprimirTexto(void)
 
     texto[strcspn(texto, "\n")] = 0;
 
-    ImpressaoTexto(texto, 1, 4, 0);
+    int ret = ImpressaoTexto(texto, 1, 4, 0);
+
+    if (ret == 0)
+        printf("Texto impresso com sucesso!\n");
+    else
+        printf("Erro ao imprimir texto: %d\n", ret);
+
     AvancaPapel(2);
     Corte(2);
 }
+
+
 
 static void imprimirQRCode(void)
 {
-    char conteudo[100];
-    printf("Digite o texto do QR Code: ");
-    fgets(conteudo, sizeof(conteudo), stdin);
-    conteudo[strcspn(conteudo, "\n")] = 0;
+    char texto[100];
+    printf("Digite um texto para imprimir: ");
+    fgets(texto, sizeof(texto), stdin);
 
-    ImpressaoQRCode(conteudo, 6, 4);
+    texto[strcspn(texto, "\n")] = 0;
+
+    int ret = ImpressaoTexto(texto, 1, 4, 0);
+
+    if (ret == 0)
+        printf("Texto impresso com sucesso!\n");
+    else
+        printf("Erro ao imprimir texto: %d\n", ret);
+
     AvancaPapel(2);
     Corte(2);
 }
 
+
 static void imprimirCodigoBarras(void)
 {
+	 char texto[100];
+    printf("Digite o Qr: ");
+    fgets(texto, sizeof(texto), stdin);
+
+    texto[strcspn(texto, "\n")] = 0;
+
+    int ret = ImpressaoTexto(texto, 1, 4, 0);
+
+    if (ret == 0)
+        printf("Texto impresso com sucesso!\n");
+    else
+        printf("Erro ao imprimir qr: %d\n", ret);
+        
+
     ImpressaoCodigoBarras(8, "{A012345678912", 100, 2, 3);
     AvancaPapel(2);
     Corte(2);
